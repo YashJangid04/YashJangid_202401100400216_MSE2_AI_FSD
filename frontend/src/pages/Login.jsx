@@ -11,7 +11,7 @@ const Login = ({ onLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/login', formData);
+      const res = await axios.post('https://yashjangid-202401100400216-mse2-ai-fsd.onrender.com/api/login', formData);
       onLogin(res.data);
       navigate('/');
     } catch (err) {

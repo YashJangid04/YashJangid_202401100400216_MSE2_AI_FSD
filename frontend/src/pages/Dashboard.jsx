@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   const fetchGrievances = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/grievances', config);
+      const res = await axios.get('https://yashjangid-202401100400216-mse2-ai-fsd.onrender.com/api/grievances', config);
       setGrievances(res.data);
     } catch (err) {
       console.error(err);
@@ -33,7 +33,7 @@ const Dashboard = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get(`http://localhost:5000/api/grievances/search?title=${search}`, config);
+      const res = await axios.get(`https://yashjangid-202401100400216-mse2-ai-fsd.onrender.com/api/grievances/search?title=${search}`, config);
       setGrievances(res.data);
     } catch (err) {
       console.error(err);
@@ -44,9 +44,9 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/grievances/${editingId}`, formData, config);
+        await axios.put(`https://yashjangid-202401100400216-mse2-ai-fsd.onrender.com/api/grievances/${editingId}`, formData, config);
       } else {
-        await axios.post('http://localhost:5000/api/grievances', formData, config);
+        await axios.post('https://yashjangid-202401100400216-mse2-ai-fsd.onrender.com/api/grievances', formData, config);
       }
       setIsModalOpen(false);
       setEditingId(null);
@@ -60,7 +60,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this grievance?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/grievances/${id}`, config);
+        await axios.delete(`https://yashjangid-202401100400216-mse2-ai-fsd.onrender.com/api/grievances/${id}`, config);
         fetchGrievances();
       } catch (err) {
         console.error(err);
@@ -77,7 +77,7 @@ const Dashboard = () => {
   const toggleStatus = async (g) => {
       try {
           const newStatus = g.status === 'Pending' ? 'Resolved' : 'Pending';
-          await axios.put(`http://localhost:5000/api/grievances/${g._id}`, { ...g, status: newStatus }, config);
+          await axios.put(`https://yashjangid-202401100400216-mse2-ai-fsd.onrender.com/api/grievances/${g._id}`, { ...g, status: newStatus }, config);
           fetchGrievances();
       } catch (err) {
           console.error(err);
