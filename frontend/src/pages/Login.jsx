@@ -21,12 +21,13 @@ const Login = ({ onLogin }) => {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="auth-card glass"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="auth-card"
     >
-      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Welcome Back</h2>
-      {error && <div style={{ color: '#ef4444', marginBottom: '1rem', textAlign: 'center', fontSize: '14px' }}>{error}</div>}
+      <h2 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '8px' }}>Sign In</h2>
+      <p style={{ color: '#64748b', fontSize: '14px', marginBottom: '24px' }}>Access your grievance portal</p>
+      {error && <div style={{ color: '#ef4444', marginBottom: '16px', fontSize: '13px', fontWeight: '500' }}>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Email Address</label>

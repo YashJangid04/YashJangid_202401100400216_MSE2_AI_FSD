@@ -3,17 +3,32 @@ import { LogOut, User } from 'lucide-react';
 
 const Navbar = ({ user, onLogout }) => {
   return (
-    <nav className="glass" style={{ margin: '1rem', padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <div style={{ fontSize: '1.5rem', fontWeight: 'bold', background: 'linear-gradient(to right, #818cf8, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-        GrievancePortal
+    <nav style={{
+      background: '#fff',
+      borderBottom: '1px solid #e2e8f0',
+      padding: '1rem 2rem',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: '2rem'
+    }}>
+      <div style={{ fontSize: '1.25rem', fontWeight: '800', letterSpacing: '-0.025em' }}>
+        Grievance Portal<span style={{ color: '#facc15' }}>.</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8' }}>
-          <User size={18} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#64748b', fontSize: '14px', fontWeight: '500' }}>
+          <User size={16} />
           <span>{user.name}</span>
         </div>
-        <button onClick={onLogout} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', padding: '8px 16px' }}>
-          <LogOut size={18} />
+        <button onClick={onLogout} style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          fontSize: '13px',
+          padding: '6px 12px',
+          background: '#f8fafc'
+        }}>
+          <LogOut size={14} />
           Logout
         </button>
       </div>

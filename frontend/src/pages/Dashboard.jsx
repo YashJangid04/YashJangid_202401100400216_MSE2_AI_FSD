@@ -95,7 +95,7 @@ const Dashboard = () => {
 
       <form onSubmit={handleSearch} className="search-bar">
         <div style={{ position: 'relative', flex: 1 }}>
-          <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
+          <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
           <input 
             style={{ paddingLeft: '40px' }}
             placeholder="Search grievances by title..."
@@ -112,10 +112,10 @@ const Dashboard = () => {
             <motion.div 
               key={g._id}
               layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="grievance-card glass"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="grievance-card"
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
@@ -127,10 +127,10 @@ const Dashboard = () => {
                 <p style={{ color: '#94a3b8', fontSize: '14px' }}>{g.description}</p>
               </div>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <button onClick={() => toggleStatus(g)} className="glass" style={{ padding: '8px', color: g.status === 'Resolved' ? '#10b981' : '#94a3b8' }} title="Toggle Status">
+                <button onClick={() => toggleStatus(g)} className="glass" style={{ padding: '8px', color: g.status === 'Resolved' ? '#84cc16' : '#64748b' }} title="Toggle Status">
                   <Check size={18} />
                 </button>
-                <button onClick={() => handleEdit(g)} className="glass" style={{ padding: '8px', color: '#818cf8' }} title="Edit">
+                <button onClick={() => handleEdit(g)} className="glass" style={{ padding: '8px', color: '#1e293b' }} title="Edit">
                   <Edit3 size={18} />
                 </button>
                 <button onClick={() => handleDelete(g._id)} className="glass" style={{ padding: '8px', color: '#ef4444' }} title="Delete">
@@ -149,12 +149,11 @@ const Dashboard = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 50 }}>
+        <div className="modal-overlay">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="glass" 
-            style={{ width: '100%', maxWidth: '500px', padding: '32px' }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="modal-content" 
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <h2>{editingId ? 'Edit Grievance' : 'New Grievance'}</h2>
