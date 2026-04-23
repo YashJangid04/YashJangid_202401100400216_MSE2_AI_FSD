@@ -11,6 +11,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Health Check
+app.get('/', (req, res) => {
+    res.json({ status: 'Server is running', message: 'Student Grievance API' });
+});
+
 // Routes
 app.use('/api', require('./routes/auth'));
 app.use('/api/grievances', require('./routes/grievance'));
